@@ -29,7 +29,8 @@ public class SearchJunitTest {
         DataBase db = DataBase.getDB();
         db.addBook("Na Drini cuprija", "Ivo Andric", "Zavod za udzbenike", 375, 2012);
         db.addBook("Dervis i smrt", "Mesa Selimovic", "Stubovi kulture", 380, 2014);
-        db.addBook("Enciklopedija mrtvih", "Mesa Selimovic", "Stubovi kulture", 250, 2010);
+        db.addBook("Enciklopedija mrtvih", "Danilo Kis", "Stubovi kulture", 250, 2010);
+        db.addBook("Enciklopedija mrtvih 2", "Danilo Kis", "Stubovi kulture", 250, 2010);
     }
     
     @Test
@@ -54,7 +55,7 @@ public class SearchJunitTest {
     public void testSearchTwo(){
         DataBase db = DataBase.getDB();
         String book = "Na Drini cuprija";
-        String author = "Ivo Andric";
+        String author = "Mesa Selimovic";
         String publisher = "Zavod za udzbenike";
         
         ArrayList<Book> books = db.searchBook(book, author, "");
@@ -72,11 +73,33 @@ public class SearchJunitTest {
         Book thrid = books.get(0);
         assertEquals(first, thrid);
         assertEquals(second,thrid);
-        
-        
     }
     
-    
+    @Test
+    public void testSearchOne(){
+        DataBase db = DataBase.getDB();
+        String book = "Na Drini cuprija";
+        String author = "Ivo Andric";
+        String publisher = "Zavod za udzbenike";
+        
+        ArrayList<Book> books = db.searchBook(book, "", "");
+        assertEquals(1, books.size());
+        assertEquals(books, books.get(0).getName());
+        
+        books = db.searchBook("", author, "");
+        assertEquals(2, books.size());
+        
+        assertEquals(author, books.get(0).getAuthor());
+        assertEquals(author, books.get(1).getAuthor());
+        
+        
+        books = db.searchBook("", author, "");
+        assertEquals(2, books.size());
+        
+        assertEquals(publisher, books.get(0).getPublisher());
+        assertEquals(publisher, books.get(1).getPublisher());
+        
+    }
     public SearchJunitTest(){
     }
 }
