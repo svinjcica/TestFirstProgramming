@@ -17,7 +17,7 @@ public class TestFirstLibrary {
     
     public void testUserDontExist(){
         DataBase db = new DataBase();
-        User user = db.getUser("svinjcica");
+        User user = db.getUserBy("svinjcica");
         assertEquals(null, user);
         
     }
