@@ -100,6 +100,21 @@ public class SearchJunitTest {
         assertEquals(publisher, books.get(1).getPublisher());
         assertEquals(publisher, books.get(2).getPublisher());
     }
+    
+    
+    
+    @Test
+    public void testSearchAllEmpty(){
+        DataBase db = DataBase.getDB();
+        
+        ArrayList<Book> books = db.searchBook("", "", "");
+        
+        assertEquals(1, books.size());
+        
+        assertEquals(4, books.size());
+        
+    }
+    
     public SearchJunitTest(){
     }
 }
