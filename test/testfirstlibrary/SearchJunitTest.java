@@ -6,7 +6,9 @@
 package testfirstlibrary;
 
 
+import db.Book;
 import db.*;
+import java.util.ArrayList;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -38,7 +40,7 @@ public class SearchJunitTest {
         
         assertEquals(1, books.size());
         
-        Book b = books.get(0);
+        Book b = books.indexOf(0);
         assertEquals(b.getAuthor(), author);
         assertEquals(b.getPublisher(), publisher);
         assertArrayEquals( b.getName(), book);
