@@ -13,9 +13,16 @@ import java.util.*;
  * @author MAJA
  */
 public class DataBase {
+    private static DataBase db = null;
     HashMap<String, User> users = new HashMap<String, User>();
     HashMap<Integer, Book> books = new HashMap<Integer, Book>();
-
+    
+    private DataBase(){}
+    
+    public static DataBase getDB(){
+        if(db == null) db = new DataBase();
+        return db;
+    }
     public User getUserByNickname(String nickname) {
         return users.get(nickname);
     }

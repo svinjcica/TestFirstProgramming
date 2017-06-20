@@ -23,7 +23,7 @@ public class LibraryJunitTest {
      */
     @Test
     public void testUserDontExist(){
-        DataBase db = new DataBase();
+        DataBase db = DataBase.getDB();
         User user = db.getUserByNickname("s");
         assertEquals(null, user);
         
@@ -32,7 +32,7 @@ public class LibraryJunitTest {
     @Test
     public void testPutUser(){
      
-        DataBase db = new DataBase();
+        DataBase db = DataBase.getDB();
         
         String nickname = "svinjcica";
         String name = "Maja";
