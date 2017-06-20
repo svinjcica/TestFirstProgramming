@@ -31,7 +31,7 @@ public class LibraryJunitTest {
     
     @Test
     public void testPutUser(){
-        
+     
         DataBase db = new DataBase();
         
         String nickname = "svinjcica";
