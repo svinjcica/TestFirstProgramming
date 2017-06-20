@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
  *
  * @author MAJA
  */
-public class ReservationJunitTest1 {
+public class ReservationJunitTest {
 
     /**
      * @param args the command line arguments
@@ -62,6 +62,6 @@ public class ReservationJunitTest1 {
     
     
     
-    public ReservationJunitTest1(){
+    public ReservationJunitTest(){
     }
 }

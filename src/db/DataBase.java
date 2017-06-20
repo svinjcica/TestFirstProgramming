@@ -16,6 +16,7 @@ public class DataBase {
     private static DataBase db = null;
     HashMap<String, User> users = new HashMap<String, User>();
     HashMap<Integer, Book> books = new HashMap<Integer, Book>();
+    HashMap<Integer, Purchase> purchases = new HashMap<Integer, Purchase>();
     
     private DataBase(){}
     
@@ -80,5 +81,11 @@ public class DataBase {
     public void addBook(String name, String author, String publisher, int cost, int year) {
         Book b = new Book(name, author, publisher, cost, year);
         books.put(b.getID(), b);
+    }
+
+    public Purchase addPurchase(String username, Book b) {
+        Purchase p = new Purchase(username, b);
+        purchases.put(p.getID(), p);
+        return p;
     }
 }
