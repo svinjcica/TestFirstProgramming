@@ -14,6 +14,13 @@ public class TestFirstLibrary {
     /**
      * @param args the command line arguments
      */
+    
+    public void testUserDontExist(){
+        DataBase db = new DataBase();
+        User user = db.getUser("svinjcica");
+        assertEquals(null, user);
+        
+    }
     public static void main(String[] args) {
         // TODO code application logic here
     }
