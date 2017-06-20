@@ -17,4 +17,8 @@ public class DataBase {
     public User getUserByNickname(String nickname) {
         return users.get(nickname);
     }
+
+    public void createUser(String nickname, String name, String surname, int birthYear) {
+        users.put(nickname,new User(nickname, name, surname, birthYear));
+    }
 }
