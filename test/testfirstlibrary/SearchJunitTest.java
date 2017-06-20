@@ -79,12 +79,12 @@ public class SearchJunitTest {
     public void testSearchOne(){
         DataBase db = DataBase.getDB();
         String book = "Na Drini cuprija";
-        String author = "Ivo Andric";
+        String author = "Danilo Kis";
         String publisher = "Zavod za udzbenike";
         
         ArrayList<Book> books = db.searchBook(book, "", "");
         assertEquals(1, books.size());
-        assertEquals(books, books.get(0).getName());
+        assertEquals(book, books.get(0).getName());
         
         books = db.searchBook("", author, "");
         assertEquals(2, books.size());
@@ -93,12 +93,12 @@ public class SearchJunitTest {
         assertEquals(author, books.get(1).getAuthor());
         
         
-        books = db.searchBook("", author, "");
-        assertEquals(2, books.size());
+        books = db.searchBook("", "", publisher);
+        assertEquals(3, books.size());
         
         assertEquals(publisher, books.get(0).getPublisher());
         assertEquals(publisher, books.get(1).getPublisher());
-        
+        assertEquals(publisher, books.get(2).getPublisher());
     }
     public SearchJunitTest(){
     }

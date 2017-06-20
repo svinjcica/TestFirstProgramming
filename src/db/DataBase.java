@@ -39,7 +39,7 @@ public class DataBase {
         boolean emptyAuthor = author.equals("");
         boolean emptyPublisher = publisher.equals("");
         
-        if(emptyPublisher && emptyAuthor && emptyPublisher) 
+        if(emptyPublisher && emptyAuthor && emptyName) 
             return list;
         
         for(Book b: list){
