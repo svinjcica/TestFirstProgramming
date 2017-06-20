@@ -65,6 +65,7 @@ public class DataBase {
                             continue;
                     }
                     mybooks.add(b);
+                    continue;
             }
             else if(!emptyPublisher){
                     if(!b.getPublisher().equals(publisher))
