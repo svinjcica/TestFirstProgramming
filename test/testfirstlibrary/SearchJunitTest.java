@@ -49,13 +49,17 @@ public class SearchJunitTest {
         assertEquals(b.getPublisher(), publisher);
         assertEquals(b.getName(), book);
         
+        books = db.searchBook("Izmisljena", "i on", "i ovde");
+        assertNull(books);
+        
+        
     }
     
     @Test
     public void testSearchTwo(){
         DataBase db = DataBase.getDB();
         String book = "Na Drini cuprija";
-        String author = "Mesa Selimovic";
+        String author = "Ivo Andric";
         String publisher = "Zavod za udzbenike";
         
         ArrayList<Book> books = db.searchBook(book, author, "");
@@ -81,6 +85,7 @@ public class SearchJunitTest {
         String book = "Na Drini cuprija";
         String author = "Danilo Kis";
         String publisher = "Zavod za udzbenike";
+        String publisher1 = "Stubovi kulture";
         
         ArrayList<Book> books = db.searchBook(book, "", "");
         assertEquals(1, books.size());
@@ -93,12 +98,12 @@ public class SearchJunitTest {
         assertEquals(author, books.get(1).getAuthor());
         
         
-        books = db.searchBook("", "", publisher);
+        books = db.searchBook("", "", publisher1);
         assertEquals(3, books.size());
         
-        assertEquals(publisher, books.get(0).getPublisher());
-        assertEquals(publisher, books.get(1).getPublisher());
-        assertEquals(publisher, books.get(2).getPublisher());
+        assertEquals(publisher1, books.get(0).getPublisher());
+        assertEquals(publisher1, books.get(1).getPublisher());
+        assertEquals(publisher1, books.get(2).getPublisher());
     }
     
     
@@ -108,8 +113,6 @@ public class SearchJunitTest {
         DataBase db = DataBase.getDB();
         
         ArrayList<Book> books = db.searchBook("", "", "");
-        
-        assertEquals(1, books.size());
         
         assertEquals(4, books.size());
         
