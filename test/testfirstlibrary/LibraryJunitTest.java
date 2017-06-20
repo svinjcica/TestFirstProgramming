@@ -5,23 +5,30 @@
  */
 package testfirstlibrary;
 
+
+import db.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
  *
  * @author MAJA
  */
-public class TestFirstLibrary {
+public class LibraryJunitTest {
 
     /**
      * @param args the command line arguments
      */
-    
+    @Test
     public void testUserDontExist(){
         DataBase db = new DataBase();
         User user = db.getUserByNickname("s");
         assertEquals(null, user);
         
     }
-    
+    /*
     public void testPutUser(){
         
         DataBase db = new DataBase();
@@ -44,9 +51,13 @@ public class TestFirstLibrary {
         
         
     }
-    
-    public static void main(String[] args) {
+    */
+   /* public static void main(String[] args) {
         // TODO code application logic here
+      //  testUserDontExist();
     }
+    */
     
+    public LibraryJunitTest(){
+    }
 }
