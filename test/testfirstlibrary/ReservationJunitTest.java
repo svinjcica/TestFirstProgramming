@@ -43,7 +43,7 @@ public class ReservationJunitTest {
     }
     
     @Test
-    public void testSearchAll(){
+    public void testMakeReservation(){
         DataBase db = DataBase.getDB();
         String username = "maja123";
         Book b = db.searchBook("Na Drini cuprija" , "Ivo Andric", "Zavod za udzbenike").get(0);
@@ -60,6 +60,17 @@ public class ReservationJunitTest {
         
     }
     
+    
+    @Test
+    public void makeBadReservaion(){
+        DataBase db = DataBase.getDB();
+        String username = "nepostoji";
+        Book b = db.searchBook("Na Drini cuprija" , "Ivo Andric", "Zavod za udzbenike").get(0);
+        Purchase myPurchase = db.addPurchase(username, b);
+        
+        assertNull(myPurchase);
+        
+    }
     
     
     public ReservationJunitTest(){
