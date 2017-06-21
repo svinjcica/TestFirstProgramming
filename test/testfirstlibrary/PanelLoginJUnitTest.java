@@ -8,6 +8,7 @@ package testfirstlibrary;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import gui.*;
 import static org.junit.Assert.*;
 
 /**
@@ -21,13 +22,13 @@ public class PanelLoginJUnitTest {
     
      @Test
      public void testPanelLogin() {
-     MyPanel panel = MyPanel();
+     MyPanel panel = new MyPanel();
      assertNotNull(panel.getTextLabel());
      assertNotNull(panel.getNameLabel()); 
      assertNotNull(panel.getNameField()); 
      assertNotNull(panel.getPassLabel()); 
      assertNotNull(panel.getPassField()); 
-     assertNotNull(panel.getLoginButton); 
+     assertNotNull(panel.getLoginButton()); 
      
      assertEquals("username:", panel.getNameLabel().getText());
      assertEquals("password:", panel.getPassLabel().getText());
