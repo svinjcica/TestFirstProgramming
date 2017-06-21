@@ -5,6 +5,7 @@
  */
 package gui;
 
+import db.Book;
 import db.DataBase;
 import db.User;
 import java.awt.BorderLayout;
@@ -15,6 +16,7 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -26,25 +28,51 @@ public class SecWin extends JFrame{
     private Panel panel;
     //private Label txt = new Label("INSERT");
     private Label autor = new Label("autor:");
-    private TextField autorField = new TextField();
+    private TextField autorField = new TextField("");
     private Label ime = new Label("ime:");
-    private Label imeField = new Label("iadavac:");
-    private TextField izdavac = new TextField();
-    private Label izdavacField = new Label("iadavac:");
+    private TextField imeField = new TextField("");
+    private TextField izdavacField = new TextField("");
+    private Label izdavac = new Label("izadavac:");
     private JButton search = new JButton("search");
-    private TextArea txt = new TextArea();
+    private TextArea txt = new TextArea("");
     
 
     public Panel platePanel(){
+        panel = new Panel(new GridLayout(2, 1));
+        Panel upP = new Panel(new GridLayout(4,2));
+        Panel p1 =  new Panel(new GridLayout(1,2));
+        p1.add(ime); p1.add(imeField);
+        Panel p2 =  new Panel(new GridLayout(1,2));
+        p2.add(autor); p2.add(autorField);
+        Panel p3 =  new Panel(new GridLayout(1,2));
+        p3.add(izdavac); p3.add(izdavacField);
+        upP.add(p1); upP.add(p2); upP.add(p3);
+        upP.add(search);
+        panel.add(upP);
+        panel.add(txt, BorderLayout.SOUTH);
         
+        search.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                            DataBase db = DataBase.getDB();
+                           ArrayList<Book> books = db.searchBook(imeField.getSelectedText(), autorField.getText(), izdavacField.getText());
+                            if(books.size() == 0)
+                                txt.setText("No result");
+                            String s = "";
+                            for(Book b: books){
+                                s+=b.toString();
+                            }
+                            txt.setText(s);
+                        }});
         return panel;
     }
     
     public SecWin(){
         super("login");
-        setBounds(250,50,200,250);
+        setBounds(250,50,500,500);
 	setResizable(false);
-     //   add(platePanel(),BorderLayout.CENTER);
+        add(platePanel(),BorderLayout.CENTER);
     }
     
    
@@ -90,22 +118,7 @@ public class SecWin extends JFrame{
         this.ime = ime;
     }
 
-    public TextField getIzdavac() {
-        return izdavac;
-    }
-
-    public void setIzdavac(TextField izdavac) {
-        this.izdavac = izdavac;
-    }
-
-    public Label getIzdavacField() {
-        return izdavacField;
-    }
-
-    public void setIzdavacField(Label izdavacField) {
-        this.izdavacField = izdavacField;
-    }
-
+   
     public JButton getSearch() {
         return search;
     }
@@ -122,13 +135,31 @@ public class SecWin extends JFrame{
         this.txt = txt;
     }
 
-    public Label getImeField() {
+    public TextField getImeField() {
         return imeField;
     }
 
-    public void setImeField(Label imeField) {
+    public void setImeField(TextField imeField) {
         this.imeField = imeField;
     }
+
+    public TextField getIzdavacField() {
+        return izdavacField;
+    }
+
+    public void setIzdavacField(TextField izdavacField) {
+        this.izdavacField = izdavacField;
+    }
+
+    public Label getIzdavac() {
+        return izdavac;
+    }
+
+    public void setIzdavac(Label izdavac) {
+        this.izdavac = izdavac;
+    }
+
+    
     
     
 }
