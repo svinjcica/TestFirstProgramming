@@ -51,11 +51,7 @@ public class LibraryJunitTest {
         
     }
     
-   /* public static void main(String[] args) {
-        // TODO code application logic here
-      //  testUserDontExist();
-    }
-    */
+  
     
     public LibraryJunitTest(){
     }

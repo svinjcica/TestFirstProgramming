@@ -10,7 +10,7 @@ package db;
  * @author MAJA
  */
 public class Book {
-    private static int PosID = 0;
+    public static int PosID = 0;
     private int ID = ++PosID;
     private String name, author, publisher; 
     private int cost, year;
