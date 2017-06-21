@@ -52,7 +52,6 @@ public class SearchJunitTest {
         books = db.searchBook("Izmisljena", "i on", "i ovde");
         assertNull(books);
         
-        
     }
     
     @Test
@@ -96,7 +95,6 @@ public class SearchJunitTest {
         
         assertEquals(author, books.get(0).getAuthor());
         assertEquals(author, books.get(1).getAuthor());
-        
         
         books = db.searchBook("", "", publisher1);
         assertEquals(3, books.size());
