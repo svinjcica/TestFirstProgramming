@@ -68,7 +68,7 @@ public class UserJunitTest {
      
         DataBase db = DataBase.getDB();
         
-        String nickname = "svinjcica";
+        String nickname = "nn";
         String name = "Maja";
         String surname = "Zivkovic";
         int birthYear = 1993;
@@ -108,7 +108,7 @@ public class UserJunitTest {
         assertEquals(surname, user.getSurname());
         assertEquals(birthYear, user.getBirthYear());
         
-        String s = db.createUser(nickname, name, surname,  birthYear);
+        s = db.createUser(nickname, name, surname,  birthYear);
         assertEquals(s, "User already exists");
         
     }

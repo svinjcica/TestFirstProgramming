@@ -28,9 +28,11 @@ public class DataBase {
         return users.get(nickname);
     }
 
-    public void createUser(String nickname, String name, String surname, int birthYear) {
-        if(nickname.equals("") || name.equals("")|| surname.equals("")) return;
+    public String createUser(String nickname, String name, String surname, int birthYear) {
+        if(nickname.equals("") || name.equals("")|| surname.equals("")) return "Wrong data";
+        if(users.get(nickname) != null) return "User already exists"; 
         users.put(nickname,new User(nickname, name, surname, birthYear));
+        return "Done";
     }
 
     public ArrayList<Book> searchBook(String name, String author, String publisher) {

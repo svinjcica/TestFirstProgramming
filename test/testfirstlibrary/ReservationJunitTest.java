@@ -36,10 +36,10 @@ public class ReservationJunitTest {
         db.addBook("Enciklopedija mrtvih", "Danilo Kis", "Stubovi kulture", 250, 2010);
         db.addBook("Enciklopedija mrtvih 2", "Danilo Kis", "Stubovi kulture", 250, 2010);
         
-        db.createUser("maja123", "Maja", "Zivkovic",1993 );
-        db.createUser("sanjaz", "Sanja", "Zivkovic",1991 );
-        db.createUser("milena1", "Milena", "Milovanovic",1992 );
-        db.createUser("neko", "Pera", "Peric",1993 );
+        String s = db.createUser("maja123", "Maja", "Zivkovic",1993 );
+        s = db.createUser("sanjaz", "Sanja", "Zivkovic",1991 );
+        s = db.createUser("milena1", "Milena", "Milovanovic",1992 );
+        s = db.createUser("neko", "Pera", "Peric",1993 );
     }
     
     @Test
