@@ -33,29 +33,32 @@ public class UserJunitTest {
     public void testWrongInput(){
         DataBase db = DataBase.getDB();
         
-        String nickname = "svinjcica";
+        String nickname = "izmislicemo";
         String name = "Maja";
         String surname = "Zivkovic";
         int birthYear = 1993;
         
-        db.createUser("", name, surname,  birthYear);
+        String s = db.createUser("", name, surname,  birthYear);
+        assertEquals(s, "Wrong data");
         
         User user = db.getUserByNickname("");
         assertNull(user);
        
-        db.createUser(nickname, "", surname,  birthYear);
+        s = db.createUser(nickname, "", surname,  birthYear);
+        assertEquals(s, "Wrong data");
         
         user = db.getUserByNickname(nickname);
         assertNull(user);
         
-        db.createUser(nickname, name, "",  birthYear);
+        s = db.createUser(nickname, name, "",  birthYear);
+        assertEquals(s, "Wrong data");
         
         user = db.getUserByNickname(nickname);
         assertNull(user);
         
-        db.createUser("nebo", name, surname,  0);
-        
-        user = db.getUserByNickname(nickname);
+        s = db.createUser("nebo", name, surname,  0);
+        assertEquals(s, "Done");
+        user = db.getUserByNickname("nebo");
         assertNotNull(user);
         
     }
@@ -70,7 +73,9 @@ public class UserJunitTest {
         String surname = "Zivkovic";
         int birthYear = 1993;
         
-        db.createUser(nickname, name, surname,  birthYear);
+        String s = db.createUser(nickname, name, surname,  birthYear);
+        
+        assertEquals(s, "Done");
         
         User user = db.getUserByNickname(nickname);
         assertNotNull(user);
@@ -83,7 +88,30 @@ public class UserJunitTest {
     }
     
   
-    
+    @Test
+    public void testPutExistingUser(){
+     
+        DataBase db = DataBase.getDB();
+        
+        String nickname = "svinjcica";
+        String name = "Maja";
+        String surname = "Zivkovic";
+        int birthYear = 1993;
+        
+        String s = db.createUser(nickname, name, surname,  birthYear);
+        assertEquals(s, "Done");
+        
+        User user = db.getUserByNickname(nickname);
+        assertNotNull(user);
+        assertEquals(nickname, user.getNickname());
+        assertEquals(name, user.getName());
+        assertEquals(surname, user.getSurname());
+        assertEquals(birthYear, user.getBirthYear());
+        
+        String s = db.createUser(nickname, name, surname,  birthYear);
+        assertEquals(s, "User already exists");
+        
+    }
     public UserJunitTest(){
     }
 }

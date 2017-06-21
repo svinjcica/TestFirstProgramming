@@ -29,6 +29,7 @@ public class DataBase {
     }
 
     public void createUser(String nickname, String name, String surname, int birthYear) {
+        if(nickname.equals("") || name.equals("")|| surname.equals("")) return;
         users.put(nickname,new User(nickname, name, surname, birthYear));
     }
 
