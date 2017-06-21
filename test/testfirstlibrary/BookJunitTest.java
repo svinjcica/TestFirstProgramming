@@ -64,7 +64,23 @@ public class BookJunitTest {
         
     }
     
-  
+    @Test
+    public void testToString(){
+        DataBase db = DataBase.getDB();
+        String name = "Ime Knjige";
+        String author = "Ivo Andric";
+        String publisher = "Zavod za udzbenike";
+        db.addBook("Ime Knjige","Ivo Andric" ,"Zavod za udzbenike" , 375, 2012);
+        String s = db.searchBook(name, author, publisher).get(0).toString();
+        
+        assertTrue(s.contains(name));
+        assertTrue(s.contains(author));
+        assertTrue(s.contains(publisher));
+        
+        assertEquals("Ime: Ime Knjige; autor: Ivo Andric; izdavac: Zavod za udzbenike",s);
+        
+        
+    }
     
     public BookJunitTest(){
     }
