@@ -5,20 +5,32 @@
  */
 package gui;
 
+import java.awt.*;
 import javax.swing.*;
 
 /**
  *
  * @author MAJA
  */
-public class MyPanel extends JPanel{
+public class MyPanel extends Panel{
     
-    private JLabel txt = new JLabel("INSERT");
-    private JLabel name = new JLabel("username:");
-    private JTextField nameFiled = new JTextField();
-    private JLabel pass = new JLabel("password:");
+    private Label txt = new Label("INSERT");
+    private Label name = new Label("username:");
+    private TextField nameFiled = new TextField();
+    private Label pass = new Label("password:");
     private JButton loginButton = new JButton("login");
-    private JTextField passFiled = new JTextField();
+    private TextField passFiled = new TextField();
+
+    public MyPanel() {
+        Panel plate = new Panel( new GridLayout(2, 1));
+        Panel plate1 = new Panel(new GridLayout(2,1));
+        
+        plate.add(name); plate.add(nameFiled);
+        plate1.add(pass); plate.add(pass);
+        
+        add(plate);
+        add(plate1);
+    }
   
     
      public JButton getLoginButton(){
@@ -26,23 +38,23 @@ public class MyPanel extends JPanel{
      }
      
      
-     public JTextField getNameField(){
+     public TextField getNameField(){
          return nameFiled;
      }
      
-     public JTextField getPassField(){
+     public TextField getPassField(){
          return passFiled;
      }
      
-    public JLabel getTextLabel(){
+    public Label getTextLabel(){
         return txt;
     }
     
-    public JLabel getPassLabel(){
+    public Label getPassLabel(){
         return pass;
     }
     
-    public JLabel getNameLabel(){
+    public Label getNameLabel(){
         return name;
     }
     

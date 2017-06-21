@@ -37,4 +37,6 @@ public class PanelLoginJUnitTest {
      assertEquals("", panel.getNameField().getText());
      assertEquals("INSERT", panel.getTextLabel().getText());
      }
+     
+     
 }
