@@ -70,6 +70,11 @@ public class Book {
     public int getID() {
         return ID;
     }
+
+    @Override
+    public String toString() {
+        return "Ime: " + name + "; autor: " + author + "; izdavac: " + publisher ;
+    }
     
     
     

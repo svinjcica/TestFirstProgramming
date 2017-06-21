@@ -88,7 +88,7 @@ public class SecondWindJUnitTest {
          assertEquals("", s.getTxt().getText());
          
          s.getImeField().setText("Ivo Andric");
-         assertEquals("Na Drini cuprija", s.getImeField().getText());
+         assertEquals("Ivo Andric", s.getImeField().getText());
          s.getAutorField().setText("");
          assertEquals("",  s.getIzdavacField().getText());
          s.getIzdavacField().setText("");
