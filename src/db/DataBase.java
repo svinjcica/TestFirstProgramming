@@ -84,6 +84,8 @@ public class DataBase {
     }
 
     public Purchase addPurchase(String username, Book b) {
+        User u = getUserByNickname(username);
+        if(u == null) return null;
         Purchase p = new Purchase(username, b);
         purchases.put(p.getID(), p);
         return p;
