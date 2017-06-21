@@ -22,7 +22,7 @@ public class PanelLoginJUnitTest {
     
      @Test
      public void testPanelLogin() {
-     MyPanel panel = new MyPanel();
+     LoginFrame panel = new LoginFrame();
      assertNotNull(panel.getTextLabel());
      assertNotNull(panel.getNameLabel()); 
      assertNotNull(panel.getNameField()); 
@@ -38,5 +38,13 @@ public class PanelLoginJUnitTest {
      assertEquals("INSERT", panel.getTextLabel().getText());
      }
      
-     
+     @Test
+      public void testFrameLogin(){
+
+          LoginFrame lf = new LoginFrame();
+          assertNotNull(lf.getSecWind());
+          
+          lf.getLoginButton().setText("name");
+          assertEquals("name", lf.getLoginButton().getText());
+      }
 }

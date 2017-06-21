@@ -16,11 +16,8 @@ import static org.junit.Assert.*;
  *
  * @author MAJA
  */
-public class UserJunitTest {
+public class MyUserJunitTest {
 
-    /**
-     * @param args the command line arguments
-     */
     @Test
     public void testUserDontExist(){
         DataBase db = DataBase.getDB();
@@ -112,6 +109,6 @@ public class UserJunitTest {
         assertEquals(s, "User already exists");
         
     }
-    public UserJunitTest(){
+    public MyUserJunitTest(){
     }
 }
