@@ -79,6 +79,7 @@ public class DataBase {
     }
 
     public void addBook(String name, String author, String publisher, int cost, int year) {
+        if(name.equals("") ||author.equals("") || publisher.equals("") || cost< 0 || year < 0 ) return;
         Book b = new Book(name, author, publisher, cost, year);
         books.put(b.getID(), b);
     }
