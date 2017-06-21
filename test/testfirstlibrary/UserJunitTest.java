@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  *
  * @author MAJA
  */
-public class LibraryJunitTest {
+public class UserJunitTest {
 
     /**
      * @param args the command line arguments
@@ -26,6 +26,37 @@ public class LibraryJunitTest {
         DataBase db = DataBase.getDB();
         User user = db.getUserByNickname("s");
         assertEquals(null, user);
+        
+    }
+    
+    @Test
+    public void testWrongInput(){
+        DataBase db = DataBase.getDB();
+        
+        String nickname = "svinjcica";
+        String name = "Maja";
+        String surname = "Zivkovic";
+        int birthYear = 1993;
+        
+        db.createUser("", name, surname,  birthYear);
+        
+        User user = db.getUserByNickname("");
+        assertNull(user);
+       
+        db.createUser(nickname, "", surname,  birthYear);
+        
+        user = db.getUserByNickname(nickname);
+        assertNull(user);
+        
+        db.createUser(nickname, name, "",  birthYear);
+        
+        user = db.getUserByNickname(nickname);
+        assertNull(user);
+        
+        db.createUser("nebo", name, surname,  0);
+        
+        user = db.getUserByNickname(nickname);
+        assertNotNull(user);
         
     }
     
@@ -53,6 +84,6 @@ public class LibraryJunitTest {
     
   
     
-    public LibraryJunitTest(){
+    public UserJunitTest(){
     }
 }
